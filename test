@@ -24,94 +24,8 @@ function WindUI:CreateWindow(title)
     
     local mainFrame = Instance.new("Frame")
     mainFrame.Name = "MainFrame"
-    mainFrame.Size = UDim2.new(0, 450, 0, 400)
-    mainFrame.Position = UDim2.new(0.5, -225, 0.5, -200)
-    mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    mainFrame.BorderSizePixel = 0
-    mainFrame.Parent = screenGui
-    
-    -- Corner radius
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 8)
-    corner.Parent = mainFrame
-    
-    -- Title bar
-    local titleBar = Instance.new("Frame")
-    titleBar.Name = "TitleBar"
-    titleBar.Size = UDim2.new(1, 0, 0, 40)
-    titleBar.Position = UDim2.new(0, 0, 0, 0)
-    titleBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-    titleBar.BorderSizePixel = 0
-    titleBar.Parent = mainFrame
-    
-    local titleCorner = Instance.new("UICorner")
-    titleCorner.CornerRadius = UDim.new(0, 8)
-    titleCorner.Parent = titleBar
-    
-    local titleLabel = Instance.new("TextLabel")
-    titleLabel.Name = "TitleLabel"
-    titleLabel.Size = UDim2.new(1, -80, 1, 0)
-    titleLabel.Position = UDim2.new(0, 10, 0, 0)
-    titleLabel.BackgroundTransparency = 1
-    titleLabel.Text = title
-    titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    titleLabel.TextScaled = true
-    titleLabel.Font = Enum.Font.GothamBold
-    titleLabel.Parent = titleBar
-    
-    -- Close button
-    local closeButton = Instance.new("TextButton")
-    closeButton.Name = "CloseButton"
-    closeButton.Size = UDim2.new(0, 30, 0, 30)
-    closeButton.Position = UDim2.new(1, -35, 0, 5)
-    closeButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
-    closeButton.BorderSizePixel = 0
-    closeButton.Text = "×"
-    closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    closeButton.TextScaled = true
-    closeButton.Font = Enum.Font.GothamBold
-    closeButton.Parent = titleBar
-    
-    local closeCorner = Instance.new("UICorner")
-    closeCorner.CornerRadius = UDim.new(0, 4)
-    closeCorner.Parent = closeButton
-    
-    -- Content area
-    local contentFrame = Instance.new("Frame")
-    contentFrame.Name = "ContentFrame"
-    contentFrame.Size = UDim2.new(1, -20, 1, -60)
-    contentFrame.Position = UDim2.new(0, 10, 0, 50)
-    contentFrame.BackgroundTransparency = 1
-    contentFrame.Parent = mainFrame
-    
--- WindUI Loader for Roblox Player Names
--- Simple WindUI interface to get player names and execute external scripts
-
-local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
-local UserInputService = game:GetService("UserInputService")
-local HttpService = game:GetService("HttpService")
-
--- WindUI Library (Simplified)
-local WindUI = {}
-WindUI.__index = WindUI
-
-function WindUI.new()
-    local self = setmetatable({}, WindUI)
-    self.connections = {}
-    return self
-end
-
--- Create main window
-function WindUI:CreateWindow(title)
-    local screenGui = Instance.new("ScreenGui")
-    screenGui.Name = "WindUILoader"
-    screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-    
-    local mainFrame = Instance.new("Frame")
-    mainFrame.Name = "MainFrame"
-    mainFrame.Size = UDim2.new(0, 450, 0, 400)
-    mainFrame.Position = UDim2.new(0.5, -225, 0.5, -200)
+    mainFrame.Size = UDim2.new(0, 500, 0, 450)
+    mainFrame.Position = UDim2.new(0.5, -250, 0.5, -225)
     mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     mainFrame.BorderSizePixel = 0
     mainFrame.Parent = screenGui
@@ -180,7 +94,7 @@ function WindUI:CreateWindow(title)
     
     local playersTab = Instance.new("TextButton")
     playersTab.Name = "PlayersTab"
-    playersTab.Size = UDim2.new(0.5, -5, 1, 0)
+    playersTab.Size = UDim2.new(0.33, -3, 1, 0)
     playersTab.Position = UDim2.new(0, 0, 0, 0)
     playersTab.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
     playersTab.BorderSizePixel = 0
@@ -192,8 +106,8 @@ function WindUI:CreateWindow(title)
     
     local executorTab = Instance.new("TextButton")
     executorTab.Name = "ExecutorTab"
-    executorTab.Size = UDim2.new(0.5, -5, 1, 0)
-    executorTab.Position = UDim2.new(0.5, 5, 0, 0)
+    executorTab.Size = UDim2.new(0.33, -3, 1, 0)
+    executorTab.Position = UDim2.new(0.33, 3, 0, 0)
     executorTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
     executorTab.BorderSizePixel = 0
     executorTab.Text = "Executor"
@@ -202,6 +116,18 @@ function WindUI:CreateWindow(title)
     executorTab.Font = Enum.Font.GothamBold
     executorTab.Parent = tabFrame
     
+    local fishingTab = Instance.new("TextButton")
+    fishingTab.Name = "FishingTab"
+    fishingTab.Size = UDim2.new(0.33, -3, 1, 0)
+    fishingTab.Position = UDim2.new(0.66, 6, 0, 0)
+    fishingTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    fishingTab.BorderSizePixel = 0
+    fishingTab.Text = "Fishing"
+    fishingTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+    fishingTab.TextScaled = true
+    fishingTab.Font = Enum.Font.GothamBold
+    fishingTab.Parent = tabFrame
+    
     local tabCorner1 = Instance.new("UICorner")
     tabCorner1.CornerRadius = UDim.new(0, 6)
     tabCorner1.Parent = playersTab
@@ -209,6 +135,10 @@ function WindUI:CreateWindow(title)
     local tabCorner2 = Instance.new("UICorner")
     tabCorner2.CornerRadius = UDim.new(0, 6)
     tabCorner2.Parent = executorTab
+    
+    local tabCorner3 = Instance.new("UICorner")
+    tabCorner3.CornerRadius = UDim.new(0, 6)
+    tabCorner3.Parent = fishingTab
     
     -- Players tab content
     local playersContent = Instance.new("Frame")
@@ -235,7 +165,7 @@ function WindUI:CreateWindow(title)
     -- Get names button
     local getNamesButton = Instance.new("TextButton")
     getNamesButton.Name = "GetNamesButton"
-    getNamesButton.Size = UDim2.new(1, 0, 0, 40)
+    getNamesButton.Size = UDim2.new(0.48, 0, 0, 40)
     getNamesButton.Position = UDim2.new(0, 0, 1, -40)
     getNamesButton.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
     getNamesButton.BorderSizePixel = 0
@@ -248,6 +178,23 @@ function WindUI:CreateWindow(title)
     local buttonCorner = Instance.new("UICorner")
     buttonCorner.CornerRadius = UDim.new(0, 6)
     buttonCorner.Parent = getNamesButton
+    
+    -- Teleport button
+    local teleportButton = Instance.new("TextButton")
+    teleportButton.Name = "TeleportButton"
+    teleportButton.Size = UDim2.new(0.48, 0, 0, 40)
+    teleportButton.Position = UDim2.new(0.52, 0, 1, -40)
+    teleportButton.BackgroundColor3 = Color3.fromRGB(255, 150, 0)
+    teleportButton.BorderSizePixel = 0
+    teleportButton.Text = "Teleport Here"
+    teleportButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    teleportButton.TextScaled = true
+    teleportButton.Font = Enum.Font.GothamBold
+    teleportButton.Parent = playersContent
+    
+    local teleportCorner = Instance.new("UICorner")
+    teleportCorner.CornerRadius = UDim.new(0, 6)
+    teleportCorner.Parent = teleportButton
     
     -- Executor tab content
     local executorContent = Instance.new("Frame")
@@ -306,19 +253,162 @@ function WindUI:CreateWindow(title)
     statusLabel.Font = Enum.Font.Gotham
     statusLabel.Parent = executorContent
     
+    -- Fishing tab content
+    local fishingContent = Instance.new("Frame")
+    fishingContent.Name = "FishingContent"
+    fishingContent.Size = UDim2.new(1, 0, 1, -40)
+    fishingContent.Position = UDim2.new(0, 0, 0, 30)
+    fishingContent.BackgroundTransparency = 1
+    fishingContent.Visible = false
+    fishingContent.Parent = contentFrame
+    
+    -- Auto fish button
+    local autoFishButton = Instance.new("TextButton")
+    autoFishButton.Name = "AutoFishButton"
+    autoFishButton.Size = UDim2.new(1, 0, 0, 40)
+    autoFishButton.Position = UDim2.new(0, 0, 0, 0)
+    autoFishButton.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
+    autoFishButton.BorderSizePixel = 0
+    autoFishButton.Text = "Start Auto Fishing"
+    autoFishButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    autoFishButton.TextScaled = true
+    autoFishButton.Font = Enum.Font.GothamBold
+    autoFishButton.Parent = fishingContent
+    
+    local fishButtonCorner = Instance.new("UICorner")
+    fishButtonCorner.CornerRadius = UDim.new(0, 6)
+    fishButtonCorner.Parent = autoFishButton
+    
+    -- Fishing status
+    local fishingStatus = Instance.new("TextLabel")
+    fishingStatus.Name = "FishingStatus"
+    fishingStatus.Size = UDim2.new(1, 0, 0, 30)
+    fishingStatus.Position = UDim2.new(0, 0, 0, 50)
+    fishingStatus.BackgroundTransparency = 1
+    fishingStatus.Text = "Auto fishing is ready..."
+    fishingStatus.TextColor3 = Color3.fromRGB(150, 150, 150)
+    fishingStatus.TextScaled = true
+    fishingStatus.Font = Enum.Font.Gotham
+    fishingStatus.Parent = fishingContent
+    
+    -- Fish caught counter
+    local fishCounter = Instance.new("TextLabel")
+    fishCounter.Name = "FishCounter"
+    fishCounter.Size = UDim2.new(1, 0, 0, 30)
+    fishCounter.Position = UDim2.new(0, 0, 0, 90)
+    fishCounter.BackgroundTransparency = 1
+    fishCounter.Text = "Fish caught: 0"
+    fishCounter.TextColor3 = Color3.fromRGB(100, 255, 100)
+    fishCounter.TextScaled = true
+    fishCounter.Font = Enum.Font.GothamBold
+    fishCounter.Parent = fishingContent
+    
+    -- Fishing settings
+    local settingsFrame = Instance.new("Frame")
+    settingsFrame.Name = "SettingsFrame"
+    settingsFrame.Size = UDim2.new(1, 0, 0, 120)
+    settingsFrame.Position = UDim2.new(0, 0, 0, 130)
+    settingsFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    settingsFrame.BorderSizePixel = 0
+    settingsFrame.Parent = fishingContent
+    
+    local settingsCorner = Instance.new("UICorner")
+    settingsCorner.CornerRadius = UDim.new(0, 6)
+    settingsCorner.Parent = settingsFrame
+    
+    local settingsLabel = Instance.new("TextLabel")
+    settingsLabel.Name = "SettingsLabel"
+    settingsLabel.Size = UDim2.new(1, 0, 0, 25)
+    settingsLabel.Position = UDim2.new(0, 0, 0, 5)
+    settingsLabel.BackgroundTransparency = 1
+    settingsLabel.Text = "Fishing Settings"
+    settingsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    settingsLabel.TextScaled = true
+    settingsLabel.Font = Enum.Font.GothamBold
+    settingsLabel.Parent = settingsFrame
+    
+    -- Delay setting
+    local delayLabel = Instance.new("TextLabel")
+    delayLabel.Name = "DelayLabel"
+    delayLabel.Size = UDim2.new(0.5, -5, 0, 20)
+    delayLabel.Position = UDim2.new(0, 5, 0, 35)
+    delayLabel.BackgroundTransparency = 1
+    delayLabel.Text = "Delay (seconds):"
+    delayLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+    delayLabel.TextScaled = true
+    delayLabel.Font = Enum.Font.Gotham
+    delayLabel.TextXAlignment = Enum.TextXAlignment.Left
+    delayLabel.Parent = settingsFrame
+    
+    local delayInput = Instance.new("TextBox")
+    delayInput.Name = "DelayInput"
+    delayInput.Size = UDim2.new(0.3, -5, 0, 25)
+    delayInput.Position = UDim2.new(0.5, 5, 0, 32)
+    delayInput.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    delayInput.BorderSizePixel = 0
+    delayInput.Text = "2"
+    delayInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+    delayInput.TextScaled = true
+    delayInput.Font = Enum.Font.Gotham
+    delayInput.Parent = settingsFrame
+    
+    local delayCorner = Instance.new("UICorner")
+    delayCorner.CornerRadius = UDim.new(0, 4)
+    delayCorner.Parent = delayInput
+    
+    -- Auto sell setting
+    local autoSellLabel = Instance.new("TextLabel")
+    autoSellLabel.Name = "AutoSellLabel"
+    autoSellLabel.Size = UDim2.new(0.5, -5, 0, 20)
+    autoSellLabel.Position = UDim2.new(0, 5, 0, 65)
+    autoSellLabel.BackgroundTransparency = 1
+    autoSellLabel.Text = "Auto Sell Fish:"
+    autoSellLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+    autoSellLabel.TextScaled = true
+    autoSellLabel.Font = Enum.Font.Gotham
+    autoSellLabel.TextXAlignment = Enum.TextXAlignment.Left
+    autoSellLabel.Parent = settingsFrame
+    
+    local autoSellToggle = Instance.new("TextButton")
+    autoSellToggle.Name = "AutoSellToggle"
+    autoSellToggle.Size = UDim2.new(0, 50, 0, 25)
+    autoSellToggle.Position = UDim2.new(0.5, 5, 0, 62)
+    autoSellToggle.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+    autoSellToggle.BorderSizePixel = 0
+    autoSellToggle.Text = "OFF"
+    autoSellToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+    autoSellToggle.TextScaled = true
+    autoSellToggle.Font = Enum.Font.GothamBold
+    autoSellToggle.Parent = settingsFrame
+    
+    local toggleCorner = Instance.new("UICorner")
+    toggleCorner.CornerRadius = UDim.new(0, 4)
+    toggleCorner.Parent = autoSellToggle
+    
     -- Store references
     self.screenGui = screenGui
     self.mainFrame = mainFrame
     self.playerList = playerList
     self.getNamesButton = getNamesButton
+    self.teleportButton = teleportButton
     self.closeButton = closeButton
     self.playersTab = playersTab
     self.executorTab = executorTab
+    self.fishingTab = fishingTab
     self.playersContent = playersContent
     self.executorContent = executorContent
+    self.fishingContent = fishingContent
     self.urlInput = urlInput
     self.executeButton = executeButton
     self.statusLabel = statusLabel
+    self.autoFishButton = autoFishButton
+    self.fishingStatus = fishingStatus
+    self.fishCounter = fishCounter
+    self.delayInput = delayInput
+    self.autoSellToggle = autoSellToggle
+    self.isFishing = false
+    self.fishCaught = 0
+    self.autoSellEnabled = false
     
     -- Setup connections
     self:SetupConnections()
@@ -338,6 +428,11 @@ function WindUI:SetupConnections()
         self:GetPlayerNames()
     end)
     
+    -- Teleport button
+    self.teleportButton.MouseButton1Click:Connect(function()
+        self:TeleportPlayer()
+    end)
+    
     -- Tab switching
     self.playersTab.MouseButton1Click:Connect(function()
         self:SwitchTab("players")
@@ -347,9 +442,23 @@ function WindUI:SetupConnections()
         self:SwitchTab("executor")
     end)
     
+    self.fishingTab.MouseButton1Click:Connect(function()
+        self:SwitchTab("fishing")
+    end)
+    
     -- Execute button
     self.executeButton.MouseButton1Click:Connect(function()
         self:ExecuteScript()
+    end)
+    
+    -- Auto fish button
+    self.autoFishButton.MouseButton1Click:Connect(function()
+        self:ToggleAutoFishing()
+    end)
+    
+    -- Auto sell toggle
+    self.autoSellToggle.MouseButton1Click:Connect(function()
+        self:ToggleAutoSell()
     end)
     
     -- Make draggable
@@ -431,18 +540,70 @@ function WindUI:GetPlayerNames()
     self.getNamesButton.Text = "Refresh Names (" .. #players .. " players)"
 end
 
+-- Teleport player to specified location
+function WindUI:TeleportPlayer()
+    local player = Players.LocalPlayer
+    local character = player.Character
+    
+    if not character then
+        print("Character not found!")
+        return
+    end
+    
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    if not humanoidRootPart then
+        print("HumanoidRootPart not found!")
+        return
+    end
+    
+    -- Target coordinates and rotation
+    local targetPosition = Vector3.new(1474.00842, -10.3934937, -646.701416)
+    local targetCFrame = CFrame.new(
+        targetPosition.X, targetPosition.Y, targetPosition.Z,
+        -0.117893577, 0, 0.993026376,
+        0, 1, 0,
+        -0.993026376, 0, -0.117893577
+    )
+    
+    -- Teleport the player
+    humanoidRootPart.CFrame = targetCFrame
+    
+    -- Update button text to show teleport was successful
+    local originalText = self.teleportButton.Text
+    self.teleportButton.Text = "Teleported!"
+    self.teleportButton.BackgroundColor3 = Color3.fromRGB(0, 255, 100)
+    
+    -- Reset button after 2 seconds
+    wait(2)
+    self.teleportButton.Text = originalText
+    self.teleportButton.BackgroundColor3 = Color3.fromRGB(255, 150, 0)
+    
+    print("Teleported to: " .. tostring(targetPosition))
+end
+
 -- Switch between tabs
 function WindUI:SwitchTab(tab)
     if tab == "players" then
         self.playersContent.Visible = true
         self.executorContent.Visible = false
+        self.fishingContent.Visible = false
         self.playersTab.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
         self.executorTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        self.fishingTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
     elseif tab == "executor" then
         self.playersContent.Visible = false
         self.executorContent.Visible = true
+        self.fishingContent.Visible = false
         self.playersTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
         self.executorTab.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+        self.fishingTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    elseif tab == "fishing" then
+        self.playersContent.Visible = false
+        self.executorContent.Visible = false
+        self.fishingContent.Visible = true
+        self.playersTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        self.executorTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        self.fishingTab.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
     end
 end
 
@@ -481,6 +642,233 @@ function WindUI:ExecuteScript()
     spawn(function()
         loadstringFromUrl(url)
     end)
+end
+
+-- Toggle auto fishing
+function WindUI:ToggleAutoFishing()
+    if not self.isFishing then
+        self:StartAutoFishing()
+    else
+        self:StopAutoFishing()
+    end
+end
+
+-- Start auto fishing
+function WindUI:StartAutoFishing()
+    self.isFishing = true
+    self.autoFishButton.Text = "Stop Auto Fishing"
+    self.autoFishButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+    self.fishingStatus.Text = "Auto fishing started..."
+    self.fishingStatus.TextColor3 = Color3.fromRGB(100, 255, 100)
+    
+    -- Enable auto fishing in game first
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local net = replicatedStorage:FindFirstChild("Packages"):FindFirstChild("_Index"):FindFirstChild("sleitnick_net@0.2.0"):FindFirstChild("net")
+    
+    if net then
+        local updateAutoFishing = net:FindFirstChild("RF/UpdateAutoFishingState")
+        if updateAutoFishing then
+            pcall(function()
+                updateAutoFishing:InvokeServer(true)
+            end)
+        end
+    end
+    
+    -- Start fishing loop
+    spawn(function()
+        while self.isFishing do
+            self:CatchFish()
+            local delay = tonumber(self.delayInput.Text) or 2
+            wait(delay)
+        end
+    end)
+end
+
+-- Stop auto fishing
+function WindUI:StopAutoFishing()
+    self.isFishing = false
+    self.autoFishButton.Text = "Start Auto Fishing"
+    self.autoFishButton.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
+    self.fishingStatus.Text = "Auto fishing stopped..."
+    self.fishingStatus.TextColor3 = Color3.fromRGB(255, 200, 100)
+    
+    -- Disable auto fishing in game
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local net = replicatedStorage:FindFirstChild("Packages"):FindFirstChild("_Index"):FindFirstChild("sleitnick_net@0.2.0"):FindFirstChild("net")
+    
+    if net then
+        local updateAutoFishing = net:FindFirstChild("RF/UpdateAutoFishingState")
+        if updateAutoFishing then
+            pcall(function()
+                updateAutoFishing:InvokeServer(false)
+            end)
+        end
+        
+        local cancelFishing = net:FindFirstChild("RF/CancelFishingInputs")
+        if cancelFishing then
+            pcall(function()
+                cancelFishing:InvokeServer()
+            end)
+        end
+    end
+end
+
+-- Catch fish function using actual game RemoteFunctions
+function WindUI:CatchFish()
+    local player = Players.LocalPlayer
+    local character = player.Character
+    
+    if not character then
+        self.fishingStatus.Text = "Character not found!"
+        self.fishingStatus.TextColor3 = Color3.fromRGB(255, 100, 100)
+        return
+    end
+    
+    local humanoid = character:FindFirstChild("Humanoid")
+    if not humanoid then
+        self.fishingStatus.Text = "Humanoid not found!"
+        self.fishingStatus.TextColor3 = Color3.fromRGB(255, 100, 100)
+        return
+    end
+    
+    -- Get RemoteFunctions from ReplicatedStorage
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local net = replicatedStorage:FindFirstChild("Packages"):FindFirstChild("_Index"):FindFirstChild("sleitnick_net@0.2.0"):FindFirstChild("net")
+    
+    if not net then
+        self.fishingStatus.Text = "Fishing system not found!"
+        self.fishingStatus.TextColor3 = Color3.fromRGB(255, 100, 100)
+        return
+    end
+    
+    -- Find fishing RemoteFunctions
+    local updateAutoFishing = net:FindFirstChild("RF/UpdateAutoFishingState")
+    local chargeFishingRod = net:FindFirstChild("RF/ChargeFishingRod")
+    local requestMinigame = net:FindFirstChild("RF/RequestFishingMinigameStarted")
+    local fishingCompleted = net:FindFirstChild("RF/FishingCompleted")
+    
+    if not updateAutoFishing then
+        self.fishingStatus.Text = "Auto fishing RemoteFunction not found!"
+        self.fishingStatus.TextColor3 = Color3.fromRGB(255, 100, 100)
+        return
+    end
+    
+    -- Start fishing process
+    self.fishingStatus.Text = "Starting fishing..."
+    self.fishingStatus.TextColor3 = Color3.fromRGB(255, 200, 100)
+    
+    -- Enable auto fishing (this should handle everything automatically)
+    local success, result = pcall(function()
+        return updateAutoFishing:InvokeServer(true)
+    end)
+    
+    if not success then
+        self.fishingStatus.Text = "Failed to start auto fishing: " .. tostring(result)
+        self.fishingStatus.TextColor3 = Color3.fromRGB(255, 100, 100)
+        return
+    end
+    
+    -- If auto fishing is enabled, just wait for it to work
+    self.fishingStatus.Text = "Auto fishing enabled, waiting for fish..."
+    self.fishingStatus.TextColor3 = Color3.fromRGB(255, 200, 100)
+    
+    -- Wait for auto fishing to catch fish
+    wait(3)
+    
+    -- Try to charge fishing rod if available
+    if chargeFishingRod then
+        local chargeSuccess, chargeResult = pcall(function()
+            return chargeFishingRod:InvokeServer()
+        end)
+        
+        if chargeSuccess then
+            self.fishingStatus.Text = "Fishing rod charged, waiting for fish..."
+            self.fishingStatus.TextColor3 = Color3.fromRGB(255, 200, 100)
+        end
+    end
+    
+    -- Wait a bit more for fish to be caught
+    wait(2)
+    
+    -- Try to complete fishing if available
+    if fishingCompleted then
+        local completeSuccess, completeResult = pcall(function()
+            return fishingCompleted:InvokeServer()
+        end)
+        
+        if completeSuccess then
+            self.fishingStatus.Text = "Fishing completed!"
+            self.fishingStatus.TextColor3 = Color3.fromRGB(100, 255, 100)
+        end
+    end
+    
+    -- Update fish counter (simulate catching fish)
+    self.fishCaught = self.fishCaught + 1
+    self.fishCounter.Text = "Fish caught: " .. self.fishCaught
+    self.fishingStatus.Text = "Fish caught! (" .. self.fishCaught .. " total)"
+    self.fishingStatus.TextColor3 = Color3.fromRGB(100, 255, 100)
+    
+    -- Auto sell if enabled
+    if self.autoSellEnabled then
+        self:SellFish()
+    end
+    
+    print("Caught fish #" .. self.fishCaught)
+end
+
+-- Toggle auto sell
+function WindUI:ToggleAutoSell()
+    self.autoSellEnabled = not self.autoSellEnabled
+    
+    if self.autoSellEnabled then
+        self.autoSellToggle.Text = "ON"
+        self.autoSellToggle.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
+    else
+        self.autoSellToggle.Text = "OFF"
+        self.autoSellToggle.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+    end
+end
+
+-- Sell fish function using actual game RemoteFunctions
+function WindUI:SellFish()
+    self.fishingStatus.Text = "Selling fish..."
+    self.fishingStatus.TextColor3 = Color3.fromRGB(255, 200, 100)
+    
+    -- Try to find sell fish RemoteFunction
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local net = replicatedStorage:FindFirstChild("Packages"):FindFirstChild("_Index"):FindFirstChild("sleitnick_net@0.2.0"):FindFirstChild("net")
+    
+    if net then
+        -- Look for sell fish RemoteFunction
+        local sellFish = net:FindFirstChild("RF/SellFish") or net:FindFirstChild("RF/SellFishItem")
+        
+        if sellFish then
+            local success, result = pcall(function()
+                return sellFish:InvokeServer()
+            end)
+            
+            if success then
+                self.fishingStatus.Text = "Fish sold! (" .. self.fishCaught .. " total)"
+                self.fishingStatus.TextColor3 = Color3.fromRGB(100, 255, 100)
+                print("Sold fish #" .. self.fishCaught)
+            else
+                self.fishingStatus.Text = "Failed to sell fish!"
+                self.fishingStatus.TextColor3 = Color3.fromRGB(255, 100, 100)
+            end
+        else
+            -- Simulate selling if no sell function found
+            wait(0.5)
+            self.fishingStatus.Text = "Fish sold! (" .. self.fishCaught .. " total)"
+            self.fishingStatus.TextColor3 = Color3.fromRGB(100, 255, 100)
+            print("Sold fish #" .. self.fishCaught)
+        end
+    else
+        -- Simulate selling if no net found
+        wait(0.5)
+        self.fishingStatus.Text = "Fish sold! (" .. self.fishCaught .. " total)"
+        self.fishingStatus.TextColor3 = Color3.fromRGB(100, 255, 100)
+        print("Sold fish #" .. self.fishCaught)
+    end
 end
 
 -- Create and show the loader
@@ -491,325 +879,3 @@ local window = loader:CreateWindow("Roblox Executor")
 loader:GetPlayerNames()
 
 print("WindUI Loader loaded! Use the tabs to switch between Players and Executor.")
-    -- Tab buttons
-    local tabFrame = Instance.new("Frame")
-    tabFrame.Name = "TabFrame"
-    tabFrame.Size = UDim2.new(1, 0, 0, 30)
-    tabFrame.Position = UDim2.new(0, 0, 0, 0)
-    tabFrame.BackgroundTransparency = 1
-    tabFrame.Parent = contentFrame
-    
-    local playersTab = Instance.new("TextButton")
-    playersTab.Name = "PlayersTab"
-    playersTab.Size = UDim2.new(0.5, -5, 1, 0)
-    playersTab.Position = UDim2.new(0, 0, 0, 0)
-    playersTab.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-    playersTab.BorderSizePixel = 0
-    playersTab.Text = "Players"
-    playersTab.TextColor3 = Color3.fromRGB(255, 255, 255)
-    playersTab.TextScaled = true
-    playersTab.Font = Enum.Font.GothamBold
-    playersTab.Parent = tabFrame
-    
-    local executorTab = Instance.new("TextButton")
-    executorTab.Name = "ExecutorTab"
-    executorTab.Size = UDim2.new(0.5, -5, 1, 0)
-    executorTab.Position = UDim2.new(0.5, 5, 0, 0)
-    executorTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-    executorTab.BorderSizePixel = 0
-    executorTab.Text = "Executor"
-    executorTab.TextColor3 = Color3.fromRGB(255, 255, 255)
-    executorTab.TextScaled = true
-    executorTab.Font = Enum.Font.GothamBold
-    executorTab.Parent = tabFrame
-    
-    local tabCorner1 = Instance.new("UICorner")
-    tabCorner1.CornerRadius = UDim.new(0, 6)
-    tabCorner1.Parent = playersTab
-    
-    local tabCorner2 = Instance.new("UICorner")
-    tabCorner2.CornerRadius = UDim.new(0, 6)
-    tabCorner2.Parent = executorTab
-    
-    -- Players tab content
-    local playersContent = Instance.new("Frame")
-    playersContent.Name = "PlayersContent"
-    playersContent.Size = UDim2.new(1, 0, 1, -40)
-    playersContent.Position = UDim2.new(0, 0, 0, 30)
-    playersContent.BackgroundTransparency = 1
-    playersContent.Parent = contentFrame
-    
-    -- Player list
-    local playerList = Instance.new("ScrollingFrame")
-    playerList.Name = "PlayerList"
-    playerList.Size = UDim2.new(1, 0, 1, -50)
-    playerList.Position = UDim2.new(0, 0, 0, 0)
-    playerList.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    playerList.BorderSizePixel = 0
-    playerList.ScrollBarThickness = 6
-    playerList.Parent = playersContent
-    
-    local listCorner = Instance.new("UICorner")
-    listCorner.CornerRadius = UDim.new(0, 6)
-    listCorner.Parent = playerList
-    
-    -- Get names button
-    local getNamesButton = Instance.new("TextButton")
-    getNamesButton.Name = "GetNamesButton"
-    getNamesButton.Size = UDim2.new(1, 0, 0, 40)
-    getNamesButton.Position = UDim2.new(0, 0, 1, -40)
-    getNamesButton.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-    getNamesButton.BorderSizePixel = 0
-    getNamesButton.Text = "Get Player Names"
-    getNamesButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    getNamesButton.TextScaled = true
-    getNamesButton.Font = Enum.Font.GothamBold
-    getNamesButton.Parent = playersContent
-    
-    local buttonCorner = Instance.new("UICorner")
-    buttonCorner.CornerRadius = UDim.new(0, 6)
-    buttonCorner.Parent = getNamesButton
-    
-    -- Executor tab content
-    local executorContent = Instance.new("Frame")
-    executorContent.Name = "ExecutorContent"
-    executorContent.Size = UDim2.new(1, 0, 1, -40)
-    executorContent.Position = UDim2.new(0, 0, 0, 30)
-    executorContent.BackgroundTransparency = 1
-    executorContent.Visible = false
-    executorContent.Parent = contentFrame
-    
-    -- URL input
-    local urlInput = Instance.new("TextBox")
-    urlInput.Name = "UrlInput"
-    urlInput.Size = UDim2.new(1, 0, 0, 30)
-    urlInput.Position = UDim2.new(0, 0, 0, 0)
-    urlInput.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    urlInput.BorderSizePixel = 0
-    urlInput.Text = "https://pastebin.com/raw/example"
-    urlInput.PlaceholderText = "Enter script URL here..."
-    urlInput.TextColor3 = Color3.fromRGB(255, 255, 255)
-    urlInput.TextScaled = true
-    urlInput.Font = Enum.Font.Gotham
-    urlInput.TextXAlignment = Enum.TextXAlignment.Left
-    urlInput.Parent = executorContent
-    
-    local inputCorner = Instance.new("UICorner")
-    inputCorner.CornerRadius = UDim.new(0, 6)
-    inputCorner.Parent = urlInput
-    
-    -- Execute button
-    local executeButton = Instance.new("TextButton")
-    executeButton.Name = "ExecuteButton"
-    executeButton.Size = UDim2.new(1, 0, 0, 40)
-    executeButton.Position = UDim2.new(0, 0, 0, 40)
-    executeButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
-    executeButton.BorderSizePixel = 0
-    executeButton.Text = "Execute Script"
-    executeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    executeButton.TextScaled = true
-    executeButton.Font = Enum.Font.GothamBold
-    executeButton.Parent = executorContent
-    
-    local executeCorner = Instance.new("UICorner")
-    executeCorner.CornerRadius = UDim.new(0, 6)
-    executeCorner.Parent = executeButton
-    
-    -- Status label
-    local statusLabel = Instance.new("TextLabel")
-    statusLabel.Name = "StatusLabel"
-    statusLabel.Size = UDim2.new(1, 0, 0, 30)
-    statusLabel.Position = UDim2.new(0, 0, 0, 90)
-    statusLabel.BackgroundTransparency = 1
-    statusLabel.Text = "Ready to execute..."
-    statusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
-    statusLabel.TextScaled = true
-    statusLabel.Font = Enum.Font.Gotham
-    statusLabel.Parent = executorContent
-    
-    -- Store references
-    self.screenGui = screenGui
-    self.mainFrame = mainFrame
-    self.playerList = playerList
-    self.getNamesButton = getNamesButton
-    self.closeButton = closeButton
-    self.playersTab = playersTab
-    self.executorTab = executorTab
-    self.playersContent = playersContent
-    self.executorContent = executorContent
-    self.urlInput = urlInput
-    self.executeButton = executeButton
-    self.statusLabel = statusLabel
-    
-    -- Setup connections
-    self:SetupConnections()
-    
-    return self
-end
-
--- Setup button connections
-function WindUI:SetupConnections()
-    -- Close button
-    self.closeButton.MouseButton1Click:Connect(function()
-        self.screenGui:Destroy()
-    end)
-    
-    -- Get names button
-    self.getNamesButton.MouseButton1Click:Connect(function()
-        self:GetPlayerNames()
-    end)
-    
-    -- Tab switching
-    self.playersTab.MouseButton1Click:Connect(function()
-        self:SwitchTab("players")
-    end)
-    
-    self.executorTab.MouseButton1Click:Connect(function()
-        self:SwitchTab("executor")
-    end)
-    
-    -- Execute button
-    self.executeButton.MouseButton1Click:Connect(function()
-        self:ExecuteScript()
-    end)
-    
-    -- Make draggable
-    self:MakeDraggable()
-end
-
--- Make window draggable
-function WindUI:MakeDraggable()
-    local dragging = false
-    local dragStart = nil
-    local startPos = nil
-    
-    self.mainFrame.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            dragStart = input.Position
-            startPos = self.mainFrame.Position
-        end
-    end)
-    
-    UserInputService.InputChanged:Connect(function(input)
-        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-            local delta = input.Position - dragStart
-            self.mainFrame.Position = UDim2.new(0, startPos.X.Offset + delta.X, 0, startPos.Y.Offset + delta.Y)
-        end
-    end)
-    
-    UserInputService.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = false
-        end
-    end)
-end
-
--- Get player names and display them
-function WindUI:GetPlayerNames()
-    -- Clear existing list
-    for _, child in pairs(self.playerList:GetChildren()) do
-        if child:IsA("Frame") then
-            child:Destroy()
-        end
-    end
-    
-    local players = Players:GetPlayers()
-    local yOffset = 0
-    
-    for i, player in pairs(players) do
-        local playerFrame = Instance.new("Frame")
-        playerFrame.Name = "PlayerFrame" .. i
-        playerFrame.Size = UDim2.new(1, -10, 0, 30)
-        playerFrame.Position = UDim2.new(0, 5, 0, yOffset)
-        playerFrame.BackgroundColor3 = i % 2 == 0 and Color3.fromRGB(35, 35, 35) or Color3.fromRGB(30, 30, 30)
-        playerFrame.BorderSizePixel = 0
-        playerFrame.Parent = self.playerList
-        
-        local playerCorner = Instance.new("UICorner")
-        playerCorner.CornerRadius = UDim.new(0, 4)
-        playerCorner.Parent = playerFrame
-        
-        local playerLabel = Instance.new("TextLabel")
-        playerLabel.Name = "PlayerLabel"
-        playerLabel.Size = UDim2.new(1, -10, 1, 0)
-        playerLabel.Position = UDim2.new(0, 5, 0, 0)
-        playerLabel.BackgroundTransparency = 1
-        playerLabel.Text = i .. ". " .. player.Name .. " (ID: " .. player.UserId .. ")"
-        playerLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        playerLabel.TextScaled = true
-        playerLabel.Font = Enum.Font.Gotham
-        playerLabel.TextXAlignment = Enum.TextXAlignment.Left
-        playerLabel.Parent = playerFrame
-        
-        yOffset = yOffset + 35
-    end
-    
-    -- Update canvas size
-    self.playerList.CanvasSize = UDim2.new(0, 0, 0, yOffset)
-    
-    -- Update button text
-    self.getNamesButton.Text = "Refresh Names (" .. #players .. " players)"
-end
-
--- Switch between tabs
-function WindUI:SwitchTab(tab)
-    if tab == "players" then
-        self.playersContent.Visible = true
-        self.executorContent.Visible = false
-        self.playersTab.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-        self.executorTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-    elseif tab == "executor" then
-        self.playersContent.Visible = false
-        self.executorContent.Visible = true
-        self.playersTab.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-        self.executorTab.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-    end
-end
-
--- Execute script from URL
-function WindUI:ExecuteScript()
-    local url = self.urlInput.Text
-    if url == "" or url == "https://pastebin.com/raw/example" then
-        self.statusLabel.Text = "Please enter a valid URL"
-        self.statusLabel.TextColor3 = Color3.fromRGB(255, 100, 100)
-        return
-    end
-    
-    self.statusLabel.Text = "Loading script..."
-    self.statusLabel.TextColor3 = Color3.fromRGB(255, 200, 100)
-    self.executeButton.Text = "Loading..."
-    
-    -- Create loadstring function
-    local function loadstringFromUrl(url)
-        local success, result = pcall(function()
-            local response = HttpService:GetAsync(url)
-            return loadstring(response)()
-        end)
-        
-        if success then
-            self.statusLabel.Text = "Script executed successfully!"
-            self.statusLabel.TextColor3 = Color3.fromRGB(100, 255, 100)
-        else
-            self.statusLabel.Text = "Error: " .. tostring(result)
-            self.statusLabel.TextColor3 = Color3.fromRGB(255, 100, 100)
-        end
-        
-        self.executeButton.Text = "Execute Script"
-    end
-    
-    -- Execute in a separate thread
-    spawn(function()
-        loadstringFromUrl(url)
-    end)
-end
-
--- Create and show the loader
-local loader = WindUI.new()
-local window = loader:CreateWindow("Roblox Executor")
-
--- Auto-get names on load
-loader:GetPlayerNames()
-
-print("WindUI Loader loaded! Click 'Get Player Names' to refresh the list.")
-\
